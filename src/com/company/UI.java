@@ -11,21 +11,23 @@ public class UI {
         System.out.println("Print? (Y/N)");
         String userInput = keybdINput.next();
         if (userInput.equalsIgnoreCase("y")) {
-            Concern[] sitReport = situation.getSitReport();
-            printRiskAnalysis(sitReport);
+            printRiskAnalysis(situation.getSitReport());
         }
     }
 
-   private void colorSevLevel(String sevLevel) {
+    private void colorSevLevel(String sevLevel) {
         switch (sevLevel) {
             case "VERY_LOW" :
             case "LOW" :
                 System.out.printf("\u001B[32m %9s \u001B[0m", sevLevel);
+                break;
             case "MEDIUM" :
                 System.out.printf("\u001B[33m %9s \u001B[0m", sevLevel);
+                break;
             case "HIGH" :
             case "VERY_HIGH" :
                 System.out.printf("\u001B[31m %9s \u001b[0m", sevLevel);
+                break;
         }
     }
 
@@ -69,16 +71,18 @@ public class UI {
     private String sevLevel;
 
     public void printRiskAnalysis(Concern[] sitReport) {
-        for (int i = 1; i < sitReport.length; i++) {
-            if (i >= 22 && i < 24) {
+        for (int i = 0; i < sitReport.length; i++) {
+            if (i >= 21 && i < 23) {
                 System.out.println("       Cancer");
-            } else if (i == 24) {
+            } else if (i == 23) {
                 System.out.println("       CANCER!");
             }
             String riskDescription = sitReport[i].getDescription();
+            instanceFactor = sitReport[i].getInstanceFactor();
+            consequence = sitReport[i].getConsequence();
             severity = sitReport[i].getInstanceFactor() * sitReport[i].getConsequence();
             sevLevel = setSevLevel(severity);
-            System.out.printf("# %3d %-33s \t\t %2d \t %2d \t %2d   ", riskRecord, riskDescription, instanceFactor, consequence, severity);
+            System.out.printf("# %3d %-38s \t\t %2d \t %2d \t %2d   ", riskRecord, riskDescription, instanceFactor, consequence, severity);
             colorSevLevel(sevLevel);
             System.out.println();
             riskRecord++;
