@@ -51,6 +51,7 @@ public class UI {
                 literal = "MEDIUM";
                 break;
             case 12 :
+            case 15 :
             case 16 :
                 literal = "HIGH";
                 break;
@@ -82,7 +83,7 @@ public class UI {
             consequence = sitReport[i].getConsequence();
             severity = sitReport[i].getInstanceFactor() * sitReport[i].getConsequence();
             sevLevel = setSevLevel(severity);
-            System.out.printf("# %3d %-38s \t\t %2d \t %2d \t %2d   ", riskRecord, riskDescription, instanceFactor, consequence, severity);
+            System.out.printf("# %3d %-39s \t\t %2d \t %2d \t %2d   ", riskRecord, riskDescription, instanceFactor, consequence, severity);
             colorSevLevel(sevLevel);
             System.out.println();
             riskRecord++;

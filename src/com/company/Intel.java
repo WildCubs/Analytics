@@ -30,7 +30,7 @@ public class Intel {
                 riskDescript = "a new moral panic";
                 break;
             case 8 :
-                riskDescript = "Can't get any parking";
+                riskDescript = "Unstable markets";
                 break;
             case 9 :
                 riskDescript = "a Horror Clown invasion";
@@ -39,13 +39,13 @@ public class Intel {
                 riskDescript = "Global pandemic";
                 break;
             case 11 :
-                riskDescript = "Unstable markets";
+                riskDescript = "Can't get any parking";
                 break;
             case 12 :
                 riskDescript = "Subway Electrocution";
                 break;
             case 13 :
-                riskDescript = "New York poodle, landing on your head";
+                riskDescript = "New York poodle, landing on your head";      // Haha, Java you is funny
                 break;
             case 14 :
                 riskDescript = "Cancer";
