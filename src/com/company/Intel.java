@@ -5,17 +5,17 @@ public class Intel {
 
 
     public Concern[] getSitReport() {
-        Concern[] sitReport = new Concern[25];
-        for (int i = 0; i < sitReport.length; i++) {
-            riskRecord++;
-            Concern concern = new Concern();
-            String description = concern.setDescription(concern.getDescription);
-            concern.setDescription(description);
+        Concern[] sitReport = new Concern[25];                      //build array
+        for (int i = 0; i < sitReport.length; i++) {                //iterate every element
+            Concern concern = new Concern();                        //build an element
+            String description = getDescription(riskRecord);        //extract description from list
+            concern.setDescription(description);                    //amend description
+            concern = sitReport[i];                                 //amend element to array
             }
-    return sitReport;
+    return sitReport;                                               //return finished array
     }
 
-    public String getDescription(Concern issue) {
+    public String getDescription(int riskRecord) {
         String riskDescript = "";
 
             switch(riskRecord) {

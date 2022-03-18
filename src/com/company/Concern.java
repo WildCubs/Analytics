@@ -10,9 +10,16 @@ public class Concern {
     private int severity;
     String sevLevel;
 
-    public void setDescription(String description) { this.description = description; }
+    public String getDescription() { return description; }
+    public int getInstanceFactor() { return instanceFactor; }
+    public int getConsequence() { return consequence; }
 
-    public Concern(){}
+    public void setDescription(String description) { this.description = description; }
+    public void setInstanceFactor(int instanceFactor) {this.instanceFactor = instanceFactor; }
+    public void setConsequence(int consequence) { this.consequence = consequence; }
+
+
+    public Concern(){ this.description = description; }
     public Concern(String description) {
         this.description = description;
     }

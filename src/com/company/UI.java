@@ -11,7 +11,8 @@ public class UI {
         System.out.println("Print? (Y/N)");
         String userInput = keybdINput.next();
         if (userInput.equalsIgnoreCase("y")) {
-            printRiskAnalysis(situation.getSitReport());
+            Concern[] sitReport = situation.getSitReport();
+            printRiskAnalysis(sitReport);
         }
     }
 
@@ -60,25 +61,24 @@ public class UI {
     }
 
     private Concern[] sitReport;
+    private Concern concern;
     private int riskRecord = 1;
-    private String riskDescription;
     private int instanceFactor;
     private int consequence;
     private int severity;
     private String sevLevel;
 
     public void printRiskAnalysis(Concern[] sitReport) {
-        for (int i = 0; i < sitReport.length; i++) {
+        for (int i = 1; i < sitReport.length; i++) {
             if (i >= 22 && i < 24) {
                 System.out.println("       Cancer");
             } else if (i == 24) {
                 System.out.println("       CANCER!");
-            } else {
-            System.out.println("errortest");
-        }
-            severity = instanceFactor * consequence;
+            }
+            String riskDescription = sitReport[i].getDescription();
+            severity = sitReport[i].getInstanceFactor() * sitReport[i].getConsequence();
             sevLevel = setSevLevel(severity);
-            System.out.printf("# %3d %33s \t\t %2d \t %2d \t %2d   ", riskRecord, riskDescription, instanceFactor, consequence, severity);
+            System.out.printf("# %3d %-33s \t\t %2d \t %2d \t %2d   ", riskRecord, riskDescription, instanceFactor, consequence, severity);
             colorSevLevel(sevLevel);
             System.out.println();
             riskRecord++;
